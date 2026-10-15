@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sign Up - BirdTag</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="bg-[#0E1117] text-white min-h-screen flex items-center justify-center font-sans"
+  >
+    <div class="bg-[#1F2937] shadow-2xl rounded-2xl p-10 w-full max-w-md">
+      <h2 class="text-3xl font-bold text-center text-cyan-400 mb-6">
+        Create BirdTag Account
+      </h2>
+
+      {% if error %}
+      <div class="bg-red-500 text-white px-4 py-3 rounded mb-4">
+        {{ error }}
+      </div>
+      {% endif %} {% if message %}
+      <div class="bg-green-500 text-white px-4 py-3 rounded mb-4">
+        {{ message }}
+      </div>
+
+      <div class="mt-4 text-center">
+        <a
+          href="/confirm?email={{ request.form.email }}"
+          class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold px-4 py-2 rounded-md transition duration-300 shadow-md"
+        >
+          Confirm Now
+        </a>
+      </div>
+      {% endif %}
+
+      <form method="POST" action="/signup" class="space-y-6 mt-6">
+        <div>
+          <label class="block text-sm font-medium">First Name</label>
+          <input
+            type="text"
+            name="first_name"
+            required
+            class="w-full px-4 py-2 rounded-md border border-gray-600 bg-[#111827] text-white focus:ring-cyan-500 focus:border-cyan-500"
+          />
+        </div>
+        <div>
+          <label class="block text-sm font-medium">Last Name</label>
+          <input
+            type="text"
+            name="last_name"
+            required
+            class="w-full px-4 py-2 rounded-md border border-gray-600 bg-[#111827] text-white focus:ring-cyan-500 focus:border-cyan-500"
+          />
+        </div>
+        <div>
+          <label class="block text-sm font-medium">Email</label>
+          <input
+            type="email"
+            name="email"
+            required
+            class="w-full px-4 py-2 rounded-md border border-gray-600 bg-[#111827] text-white focus:ring-cyan-500 focus:border-cyan-500"
+          />
+        </div>
+        <div>
+          <label class="block text-sm font-medium">Password</label>
+          <input
+            type="password"
+            name="password"
+            required
+            class="w-full px-4 py-2 rounded-md border border-gray-600 bg-[#111827] text-white focus:ring-cyan-500 focus:border-cyan-500"
+          />
+        </div>
+        <div>
+          <button
+            type="submit"
+            class="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-2 rounded-md transition duration-300 shadow-md"
+          >
+            Register
+          </button>
+        </div>
+      </form>
+
+      <p class="mt-6 text-center text-sm text-gray-400">
+        Already have an account?
+        <a href="/login" class="text-cyan-400 hover:text-cyan-300 font-medium"
+          >Log in</a
+        >
+      </p>
+    </div>
+  </body>
+</html>

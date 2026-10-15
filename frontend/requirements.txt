@@ -1,0 +1,6 @@
+boto3
+flask
+pyjwt
+python-dotenv
+requests
+streamlit>=1.40

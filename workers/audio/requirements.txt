@@ -1,0 +1,2 @@
+boto3
+birdnet-analyzer==2.4.0

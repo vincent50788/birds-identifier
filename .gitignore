@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+.idea/
+.vscode/
+.env
+
+# Local demo media and model weights are not distributed
+demo/media/*
+!demo/media/.gitkeep
+*.pt
